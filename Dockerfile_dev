@@ -1,0 +1,10 @@
+FROM node:alpine as base
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+RUN npm i npm@latest -g && npm install
+RUN npm i -g nodemon
+WORKDIR /usr/src/app
+EXPOSE 8088
+ARG APP_ENV
+ENV APP_ENV ${APP_ENV}
+CMD ["nodemon", "server.js"]

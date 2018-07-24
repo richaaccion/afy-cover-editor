@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  node-docker-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
+      args:
+        APP_ENV: local
+    ports:
+      - "8096:8088"
+    links:
+      - mongo
+    volumes:
+     - .:/usr/src/app
+     - /usr/src/app/node_modules
+     - ./logs:/logs
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    volumes:
+      - './data:/data/db'
