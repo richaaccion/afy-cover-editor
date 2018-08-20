@@ -1,24 +1,17 @@
-var fs = require('fs');
-var path = require('path');
+const path = require('path');
+const config = require('./config/config')
+const server = require('fastify')({logger: true});
 
+server.register(require(path.join(__dirname, '/lib/plugins/responseFormatter')))
+	.register(require('./routes/routes'));
 
-var express = require('express');
+console.log("start ", config);
+server.ready((err) => {
+	if (err) {
+		console.log(err);
+		process.exit(1);
+	}
 
-var app = express();
-app.use('/static', express.static(path.join(__dirname, 'assets')))
-
-var hbrFilePath = "assets/template";
-
-var templateFileName = "template1.hbr";
-
-var fileContentBuffer = fs.readFileSync(path.join(__dirname, hbrFilePath, templateFileName));
-
-var fileContent = fileContentBuffer.toString();
-
-var replacedText = fileContent.replace("{{back_profile_pic}}", "http://localhost:3002/static/template/john-profile-photo.jpg").replace("{{front_profile_pic}}", "http://localhost:3002/static/template/john-profile-photo.jpg").replace("{{front_book_title}}", "Selling").replace("{{back_book_title}}", "Selling").replace("{{background_image}}", "http://localhost:3002/static/template/background-image.png").replace("{{author_name}}", "John Doe");
-
-app.listen(3002);
-
-app.get('/', (req, res) => {
-	res.send(replacedText);
+	console.log("starting server");
+	server.listen(config.server.port);
 });
