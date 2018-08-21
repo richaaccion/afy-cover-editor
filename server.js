@@ -2,7 +2,10 @@ const path = require('path');
 const config = require('./config/config')
 const server = require('fastify')({logger: true});
 
-server.register(require('fastify-cors'))
+server.register(require('fastify-static'), {
+		root: path.join(__dirname, 'assets')
+	})
+	.register(require('fastify-cors'))
 	.register(require(path.join(__dirname, '/lib/plugins/responseFormatter')))
 	.after(err => {
 		console.log("1-> ", server.responseformatter);
