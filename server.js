@@ -8,7 +8,7 @@ server.register(require('fastify-cors'))
 		console.log("1-> ", server.responseformatter);
 		server.responseformatter.init();
 	})
-	.register(require('./lib/controllers'))
+	// .register(require('./lib/controllers'))
 	.register(require('./routes'));
 
 server.ready((err) => {
