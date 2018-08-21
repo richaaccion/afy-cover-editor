@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Template</title>
+</head>
+<body>
+
+<style>
+    @page {
+        size: 42.5cm 31cm landscape;
+        margin: 0cm;
+    }
+
+    #book-background {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #book-intro {
+        position: absolute;
+        top: 250px;
+        left: 65px;
+        width: 650px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+
+    #author-intro {
+        position: absolute;
+        top: 670px;
+        left: 230px;
+        width: 500px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+
+    .book-title {
+        position: absolute;
+        color: white;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        margin-top: 0;
+        vertical-align: top;
+    }
+
+    .book-title p {
+        text-align: center;
+    }
+
+    #book-title-large {
+        left: 900px;
+        top: 200px;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        font-size: 120px;
+    }
+
+    #book-title-small {
+        left: 300px;
+        top: 65px;
+        width: 200px;
+        border-radius: 50%;
+        font-size: 36px;
+    }
+
+    #book-title-spine {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        top: 100px;
+        left: 750px;
+        position: fixed;
+    }
+
+    .author-name {
+        position: absolute;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        color: white;
+    }
+
+    .author-name p {
+        text-align: center;
+    }
+
+    #author-name-main {
+        top: 1075px;
+        left: 950px;
+        width: 500px;
+        font-size: 30px;
+    }
+
+    #author-name-spine {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        position: absolute;
+        top: 950px;
+        left: 760px;
+    }
+</style>
+<div>
+
+    <img src="{{svg_image}}">
+</div>
+<div class="book-title" id="book-title-large">
+    <p>{{bookTitle}}</p>
+</div>
+<div class="book-title" id="book-title-small">
+    <p>{{bookTitle}}</p>
+</div>
+<div class="book-title" id="book-title-spine">
+    <p>{{bookTitle}}</p>
+</div>
+<div class="author-name" id="author-name-main">
+    <p>{{authorName}}</p>
+</div>
+<div class="author-name" id="author-name-spine">
+    <p>{{authorName}}</p>
+</div>
+<div id="book-intro">
+    {{bookDescription}}
+</div>
+<div id="author-intro">
+    {{authorBio}}
+</div>
+
+</body>
+
+</html>
