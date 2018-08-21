@@ -4,12 +4,15 @@ const server = require('fastify')({logger: true});
 
 server.register(require('fastify-cors'))
 	.register(require(path.join(__dirname, '/lib/plugins/responseFormatter')))
+	.after(err => {
+		console.log("1-> ", server.responseformatter);
+		server.responseformatter.init();
+	})
 	.register(require('./routes/routes'))
 	.after(err => {
 		server.routes.init();
 	});
 
-console.log("start ", config);
 server.ready((err) => {
 	if (err) {
 		console.log(err);
