@@ -264,7 +264,7 @@
         </text>
         <g class="cls-22">
             <g class="cls-23">
-                <image id="john-profile-photo.psd" width="312" height="312" transform="translate(533 407) scale(0.41)" xlink:href="{{front_profile_pic}}"/>
+                <image id="john-profile-photo.psd" width="312" height="312" transform="translate(533 407) scale(0.41)" xlink:href="/home/richajoshi/dev/afy-cover-editor-service/assets/template/template1/default_profile.jpg"/>
             </g>
         </g>
         <g class="cls-24">
