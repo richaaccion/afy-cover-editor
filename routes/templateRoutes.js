@@ -9,7 +9,9 @@ var templateList = {
 		templateId: 1,
 		defaultData: {
 			author: "John Doe",
-			bookTitle: "Selling Secret Demo"
+			bookTitle: "Selling Secret Demo",
+			bookDescription: "This is example description",
+			bio: "This is example bio"
 		}
 	}
 }
@@ -45,38 +47,22 @@ module.exports = function loginRoutes(fastify, options, next) {
 			var backgroundImage = path.join(templateFolder, "background-image.png");
 			var backgroundImageSvg = "http://localhost:9000/template/" + templateDetail.templateName + "/output.svg";
 
-			console.log("backgroundImageSvg-> ", backgroundImageSvg);
 			var templateSVG = fs.readFileSync(backgroundTemplateFullPath).toString();
 			
-			var updatedSVG = templateSVG.replace("{{back_profile_pic}}", profilePicImage).replace("{{front_profile_pic}}", profilePicImage).replace("{{background_image}}", backgroundImage);
+			var updatedSVG = templateSVG.replace(/{{back_profile_pic}}/g, profilePicImage).replace(/{{front_profile_pic}}/g, profilePicImage).replace(/{{background_image}}/g, backgroundImage);
 
 			var templateHBS = fs.readFileSync(templateFullPath).toString();
-			var updatedTemplate = templateHBS.replace("{{authorBio}}", templateDetail.defaultData.bio).replace("{{authorName}}", templateDetail.defaultData.author).replace("{{bookTitle}}", templateDetail.defaultData.bookTitle).replace("{{svg_image}}", backgroundImageSvg);
+			var updatedTemplate = templateHBS.replace(/{{authorBio}}/g, templateDetail.defaultData.bio).replace(/{{authorName}}/g, templateDetail.defaultData.author).replace(/{{bookTitle}}/g, templateDetail.defaultData.bookTitle).replace(/{{svg_image}}/g, backgroundImageSvg).replace(/{{bookDescription}}/g, templateDetail.defaultData.bookDescription);
 
-			console.log(updatedTemplate);
-			fs.writeFileSync(path.join(templateFolder, "final.html"), updatedTemplate, function(err){
-				if (err) {
-					console.log("1 error occured: ", err);
-				} else {
-					console.log("1 file created;;");
-				}
-			});
+			templateList[templateId]["html"] = updatedTemplate;
 
-			fs.writeFileSync(path.join(templateFolder, "output.svg"), updatedSVG, function (err) {
-				if (err) {
-					console.log("error occured: ", err);
-				} else {
-					console.log("file created;;");
-				}
-
-				responseObj = {
-					success: true,
-					data: templateList[templateId],
-					error: null
-				}
-
-				res.send(responseObj);
-			});
+			fs.writeFileSync(path.join(templateFolder, "output.svg"), updatedSVG);
+			responseObj = {
+				success: true,
+				data: templateList[templateId],
+				error: null
+			}
+			res.send(responseObj);
 		} else {
 			responseObj = {
 				success: false,
