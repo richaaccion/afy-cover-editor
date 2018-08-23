@@ -7,20 +7,21 @@ server.register(require('fastify-static'), {
 	})
 	.register(require('fastify-cors'))
 	.register(require('fastify-formbody'))
-	.register(require(path.join(__dirname, '/lib/plugins/responseFormatter')))
+	.register(require(path.join(__dirname, 'lib/plugins/responseFormatter')))
 	.after(err => {
-		console.log("1-> ", server.responseformatter);
 		server.responseformatter.init();
 	})
-	// .register(require('./lib/controllers'))
-	.register(require('./routes'));
+	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
+	.after(err => {
+		console.log("LAST---", server.databaseConnector);
+		server.databaseConnector.init();
+	})
+	.register(require(path.join(__dirname, 'routes')));
 
 server.ready((err) => {
 	if (err) {
-		console.log(err);
 		process.exit(1);
 	}
 
-	console.log("starting server");
 	server.listen(config.server.port);
 });
