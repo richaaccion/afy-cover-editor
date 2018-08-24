@@ -12,7 +12,7 @@ server.register(require('fastify-static'), {
 		server.responseformatter.init();
 	})
 	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
-	.after(err => {
+	.after((err) => {
 		console.log("LAST---", server.databaseConnector);
 		server.databaseConnector.init();
 	})
