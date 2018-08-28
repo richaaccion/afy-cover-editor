@@ -9,7 +9,7 @@ server.register(require('fastify-static'), {
 	.register(require('fastify-formbody'))
 	.register(require(path.join(__dirname, 'lib/plugins/responseFormatter')))
 	.after(err => {
-		server.responseformatter.init();
+		server.responseFormatter.init();
 	})
 	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
 	.after((err) => {
