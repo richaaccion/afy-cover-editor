@@ -1,5 +1,4 @@
 module.exports = function userRoutes(fastify, options, next) {
-	console.log("fastify: -> ", fastify);
 	fastify.get("/users/:id", (req, res) => {
 		const userDetails = {
 			username: "John Doe",

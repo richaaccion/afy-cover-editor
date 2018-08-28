@@ -13,7 +13,6 @@ server.register(require('fastify-static'), {
 	})
 	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
 	.after((err) => {
-		console.log("LAST---", server.databaseConnector);
 		server.databaseConnector.init();
 	})
 	.register(require(path.join(__dirname, 'routes')));
@@ -23,5 +22,6 @@ server.ready((err) => {
 		process.exit(1);
 	}
 
-	server.listen(config.server.port);
+	console.log(":Port: ", config.server.port);
+	server.listen(config.server.port, "172.16.27.128");
 });
