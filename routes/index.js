@@ -1,9 +1,11 @@
 const fp = require('fastify-plugin');
+const controllersClass = require('../lib/controllers');
 
-module.exports  = fp(async function(fastify, options, next) {
-	fastify.register(require('./loginRoutes'));
-	fastify.register(require('./userRoutes'));
-	fastify.register(require('./templateRoutes'));
+module.exports  = fp(function(fastify, options, next) {
+	var controllers = new controllersClass(fastify);
+	fastify.register(require('./loginRoutes'), {controllers: controllers});
+	fastify.register(require('./userRoutes'), {controllers: controllers});
+	fastify.register(require('./templateRoutes'), {controllers: controllers});
 
 	next();
 });

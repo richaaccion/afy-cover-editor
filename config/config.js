@@ -7,6 +7,10 @@ const config = {
 	},
 	template: {
 		dir: "assets/template"
+	},
+	database: {
+		url: "mongodb://localhost:27017",
+		dbname: "authorify"
 	}
 }
 
