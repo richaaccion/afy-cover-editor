@@ -1,7 +1,7 @@
 module.exports = function loginRoutes(fastify, options, next) {
 	this.controllers = options.controllers;
 
-	const opts = {
+	const loginRouteOptions = {
 	  schema: {
 	  	tags: ['login'],
 	    response: {
@@ -16,12 +16,8 @@ module.exports = function loginRoutes(fastify, options, next) {
 	    }
 	  }
 	}
-	fastify.get("/login", opts, (req, res) => {
+	fastify.get("/login", loginRouteOptions, (req, res) => {
 		this.controllers.loginController.getLogin(req, res)
-	});
-
-	fastify.put("/some-route/:id", (req, res) => {
-		res.send("ok");
 	});
 	next();
 }
