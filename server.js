@@ -12,10 +12,10 @@ server.register(require(path.join(__dirname, 'lib/plugins/fastifySwaggerWrapper'
 	.after(err => {
 		server.responseFormatter.init();
 	})
-	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
+	/*.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
 	.after((err) => {
 		server.databaseConnector.init();
-	})
+	})*/
 	.register(require(path.join(__dirname, 'routes')));
 
 server.ready((err) => {
