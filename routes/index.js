@@ -6,6 +6,7 @@ module.exports  = fp(function(fastify, options, next) {
 	fastify.register(require('./loginRoutes'), {controllers: controllers});
 	fastify.register(require('./userRoutes'), {controllers: controllers});
 	fastify.register(require('./templateRoutes'), {controllers: controllers});
+	fastify.register(require('./bookRoutes'), {controllers: controllers});
 
 	next();
 });
