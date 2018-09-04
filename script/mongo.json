@@ -1,0 +1,124 @@
+db.books.insert({ "id": 1, 
+	"name": "Real Estate Books", 
+	"category": "real_estate",
+	"thumbnailUrl": "http://localhost:9000/books/1/thumb.jpg",
+	"commercials": {
+		"price": "12.3",
+	},
+	"sections": [{
+		"id": "cover",
+		"optional": false,
+		"thumbnailUrl": "http://localhost:9000/books/1/template1/cover/thumb.jpg",
+	},
+	{
+		"id": "intro",
+		"optional": false,
+		"thumbnailUrl": "http://localhost:9000/books/1/template1/intro/thumb.jpg",
+	},
+	{
+        "id": "praise",
+        "optional": true,
+        "thumbnail_url": "http://localhost:9000/books/1/template1/praise/thumb.jpg",
+    }]
+})
+
+db.templates.insert({
+    "id": "1",
+    "name": "Template 1",
+    "bookId": "1",
+    "sectionName": "cover",
+    "featured": true,
+    "thumbnailUrl": "http://localhost:9000/books/1/template1/cover/thumb.jpg",
+    "backgroundSVGUrl": "http://localhost:9000/books/1/template1/cover/image.svg",
+    "templateHTML": "",
+    "elements": [
+        {
+            "id": "front_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        },
+        {
+            "id": "back_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        },
+        {
+            "id": "spine_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        }
+    ],   
+})
+
+db.users.insert({
+	"id": "1",
+    "email": "john@doe.com",
+    "fullName": "John Doe",
+    "address": "01, Avenue Street, Miami, Florida",
+    "phoneNumber": "1234567890",
+    "membership": "basic",
+    "credit": "100",	
+})
+
+db.images.insert({
+	"id": "",
+    "userId": "",
+    "url": "",
+})
+
+
+db.userbooks.insert({
+    "id": "1",
+    "userId": "1",
+    "bookId": "1",
+    "savedMode": "draft",
+    "sections": [
+        {
+            "id": "cover",
+            "templateId": "1",
+            "editableElements": [
+                {
+                    "id": "front_cover_title",
+                    "type": "input",
+                    "value": "My Custom Cover",
+                }
+            ]
+        }
+    ],
+    "backgroundSVGUrl": "http://localhost:9000/books/1/template1/cover/image.svg",
+    "htmlPreview": "",
+    "pdfURL": "",   
+})

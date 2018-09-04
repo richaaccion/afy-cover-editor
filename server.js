@@ -12,10 +12,10 @@ server.register(require(path.join(__dirname, 'lib/plugins/fastifySwaggerWrapper'
 	.after(err => {
 		server.responseFormatter.init();
 	})
-	/*.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
+	.register(require(path.join(__dirname, 'lib/plugins/databaseConnector')))
 	.after((err) => {
 		server.databaseConnector.init();
-	})*/
+	})
 	.register(require(path.join(__dirname, 'routes')));
 
 server.ready((err) => {
@@ -23,5 +23,5 @@ server.ready((err) => {
 		process.exit(1);
 	}
 	console.log(":Port: ", config.server.port);
-	server.listen(config.server.port, "172.16.27.128");
+	server.listen(config.server.port, "192.168.43.24");
 });
