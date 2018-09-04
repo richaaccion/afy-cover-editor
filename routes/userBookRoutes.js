@@ -20,6 +20,7 @@ module.exports = function userBookRoutes(fastify, options, next) {
 	  }
 	}
 	fastify.post("/userbook/new", userBookNewRouteOptions, (req, res) => {
+		console.log("------------------HIT-------------");
 		this.controllers.userBookController.addUserBook(req, res)
 	});
 

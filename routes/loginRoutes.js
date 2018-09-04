@@ -17,6 +17,7 @@ module.exports = function loginRoutes(fastify, options, next) {
 	  }
 	}
 	fastify.get("/login", loginRouteOptions, (req, res) => {
+		console.log("RICHA JOSHI");
 		this.controllers.loginController.getLogin(req, res)
 	});
 	next();
