@@ -1,4 +1,4 @@
-db.book.insert({ "id": 1, 
+db.books.insert({ "id": 1, 
 	"name": "Real Estate Books", 
 	"category": "real_estate",
 	"thumbnailUrl": "http://localhost:9000/books/1/thumb.jpg",
@@ -22,7 +22,7 @@ db.book.insert({ "id": 1,
     }]
 })
 
-db.template.insert({
+db.templates.insert({
     "id": "1",
     "name": "Template 1",
     "bookId": "1",
@@ -83,7 +83,7 @@ db.template.insert({
     ],   
 })
 
-db.user.insert({
+db.users.insert({
 	"id": "1",
     "email": "john@doe.com",
     "fullName": "John Doe",
@@ -93,14 +93,14 @@ db.user.insert({
     "credit": "100",	
 })
 
-db.image.insert({
+db.images.insert({
 	"id": "",
     "userId": "",
     "url": "",
 })
 
 
-db.userbook.insert({
+db.userbooks.insert({
     "id": "1",
     "userId": "1",
     "bookId": "1",
