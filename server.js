@@ -23,5 +23,5 @@ server.ready((err) => {
 		process.exit(1);
 	}
 	console.log(":Port: ", config.server.port);
-	server.listen(config.server.port, "192.168.43.24");
+	server.listen(config.server.port);
 });

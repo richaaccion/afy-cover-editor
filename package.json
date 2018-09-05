@@ -20,6 +20,7 @@
     "fastify-static": "^0.14.0",
     "fastify-swagger": "^0.15.0",
     "graphql-yoga": "^1.14.12",
-    "mongoose": "^5.2.9"
+    "mongoose": "^5.2.9",
+    "underscore": "^1.9.1"
   }
 }
