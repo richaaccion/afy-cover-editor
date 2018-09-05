@@ -1,4 +1,4 @@
-db.books.insert({ "id": 1, 
+db.books.insert({ "id": "1", 
 	"name": "Real Estate Books", 
 	"category": "real_estate",
 	"thumbnailUrl": "http://localhost:9000/books/1/thumb.jpg",
@@ -82,6 +82,68 @@ db.templates.insert({
         }
     ],   
 })
+
+db.templates.insert({
+    "id": "2",
+    "name": "Template 2",
+    "bookId": "1",
+    "sectionName": "intro",
+    "featured": true,
+    "thumbnailUrl": "http://localhost:9000/books/1/template1/intro/thumb.jpg",
+    "backgroundSVGUrl": "http://localhost:9000/books/1/template1/intro/image.svg",
+    "templateHTML": "",
+    "elements": [
+        {
+            "id": "front_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        },
+        {
+            "id": "back_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        },
+        {
+            "id": "spine_cover_title",
+            "isEditable": true,
+            "type": "text",
+            "top": "150", 
+            "left": "200", 
+            "height": "28", 
+            "width": "300",
+            "fontSize": "14",
+            "fontFamily": "courier",
+            "fontColor": "#000",
+            "fontStyle": "",
+            "rotationAngle": "0", 
+            "defaultValue": "Selling Secret",
+            "varName": "book_title"
+        }
+    ],   
+})
+
 
 db.users.insert({
 	"id": "1",
