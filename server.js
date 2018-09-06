@@ -16,7 +16,8 @@ server.register(require(path.join(__dirname, 'lib/plugins/fastifySwaggerWrapper'
 	.after((err) => {
 		server.databaseConnector.init();
 	})
-	.register(require(path.join(__dirname, 'routes')));
+	.register(require(path.join(__dirname, 'routes')))
+	.register(require(path.join(__dirname, 'models/db')));
 
 server.ready((err) => {
 	if (err) {
